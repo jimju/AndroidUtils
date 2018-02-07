@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".activity.RecyclerViewActivity" />
         <activity android:name=".activity.MetrialActivity" />
-        <activity android:name=".activity.BaseActivity"></activity>
     </application>
 
 </manifest>

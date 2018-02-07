@@ -1,6 +1,7 @@
 package com.jimju.androidutils.fragment
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
@@ -13,6 +14,7 @@ import com.jimju.androidutils.MainActivity
 
 import com.jimju.androidutils.R
 import com.jimju.androidutils.activity.MetrialActivity
+import com.jimju.androidutils.activity.RecyclerViewActivity
 import com.jimju.androidutils.adapter.BaseRecyclerAdapter
 import com.jimju.androidutils.adapter.SimpleStringRecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_main_common.*
@@ -53,11 +55,17 @@ class WidgetFragment : Fragment(), BaseRecyclerAdapter.OnItemClickListener {
         var adapter: SimpleStringRecyclerAdapter = SimpleStringRecyclerAdapter(items, activity, R.layout.item_simple_text)
         recyclerview.layoutManager = LinearLayoutManager(activity)
         recyclerview.adapter = adapter
-        adapter.setOnItemClickLister { this }
+        adapter.setOnItemClickLister(this)
     }
 
     override fun onItemClick(position: Int) {
-        
+        var intent:Intent = Intent(activity,MetrialActivity::class.java)
+        when(position){
+            0 -> intent =  Intent(activity,MetrialActivity::class.java)
+            1 -> intent = Intent(activity,RecyclerViewActivity::class.java)
+        }
+
+        startActivity(intent)
     }
 
 }

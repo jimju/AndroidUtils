@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v4.view.ViewPager.OnPageChangeListener
+import android.util.Log
 import android.view.MenuItem
 import android.view.MotionEvent
 import com.jimju.androidutils.R.id.toolbar
@@ -18,9 +19,12 @@ import com.jimju.androidutils.fragment.FunctionFragment
 import com.jimju.androidutils.fragment.WidgetFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener, OnPageChangeListener {
+
+    var menuItem: MenuItem? = null
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.navigation_widget -> viewpager.currentItem = 0
             R.id.navigation_function -> viewpager.currentItem = 1
             R.id.navigation_communication -> viewpager.currentItem = 2
@@ -35,19 +39,38 @@ class MainActivity : AppCompatActivity(),BottomNavigationView.OnNavigationItemSe
         toolbar.setTitleTextColor(Color.WHITE)
         navigation.setOnNavigationItemSelectedListener(this)
         viewpager.adapter = MyViewPagerAdapter(supportFragmentManager)
-        viewpager.setOnTouchListener { v, event ->  true }
+        viewpager.addOnPageChangeListener(this)
 
+    }
+
+    override fun onPageScrollStateChanged(state: Int) {
+
+    }
+
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+    }
+
+    override fun onPageSelected(position: Int) {
+
+        Log.e("onPageSelected","pos " + position)
+        if (menuItem == null)
+            navigation.menu.getItem(0).setChecked(false);
+        menuItem?.setChecked(false);
+        menuItem = navigation.menu.getItem(position);
+        menuItem?.isCheckable = true
     }
 
 
     class MyViewPagerAdapter : FragmentStatePagerAdapter {
-        var fragments:Array<Fragment> = arrayOf(WidgetFragment.newInstance(), FunctionFragment.newInstance(),CommunicationFragment.newInstance())
-        constructor(fm:FragmentManager) : super(fm) {
+        var fragments: Array<Fragment> = arrayOf(WidgetFragment.newInstance(), FunctionFragment.newInstance(), CommunicationFragment.newInstance())
+
+        constructor(fm: FragmentManager) : super(fm) {
 
         }
 
         override fun getItem(position: Int): Fragment {
-           return fragments[position]
+            return fragments[position]
         }
 
         override fun getCount(): Int {
