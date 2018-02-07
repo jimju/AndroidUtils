@@ -3,12 +3,16 @@ package com.jimju.androidutils.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.jimju.androidutils.R
+import com.jimju.androidutils.activity.MetrialActivity
 import com.jimju.androidutils.adapter.BaseRecyclerAdapter
+import com.jimju.androidutils.adapter.SimpleStringRecyclerAdapter
+import kotlinx.android.synthetic.main.fragment_main_common.*
 
 
 /**
@@ -16,8 +20,7 @@ import com.jimju.androidutils.adapter.BaseRecyclerAdapter
  * Use the [WidgetFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class WidgetFragment : Fragment(),BaseRecyclerAdapter.OnItemClickListener {
-
+class WidgetFragment : Fragment(), BaseRecyclerAdapter.OnItemClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,11 +46,18 @@ class WidgetFragment : Fragment(),BaseRecyclerAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        var items = arrayListOf("Material", "RecyclerView")
+        var adapter: SimpleStringRecyclerAdapter = SimpleStringRecyclerAdapter(items, activity, R.layout.item_simple_text)
+        recyclerview.layoutManager = LinearLayoutManager(activity)
+        recyclerview.adapter = adapter
+        adapter.setOnItemClickLister { this }
     }
 
     override fun onItemClick(position: Int) {
-
+        var act = null
+        when (position) {
+            0 -> {act = MetrialActivity.class }
+        }
     }
 
 }
