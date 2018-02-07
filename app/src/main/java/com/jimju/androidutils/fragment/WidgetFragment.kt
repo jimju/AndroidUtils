@@ -2,11 +2,14 @@ package com.jimju.androidutils.fragment
 
 
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.jimju.androidutils.MainActivity
 
 import com.jimju.androidutils.R
 import com.jimju.androidutils.activity.MetrialActivity
@@ -54,10 +57,7 @@ class WidgetFragment : Fragment(), BaseRecyclerAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        var act = null
-        when (position) {
-            0 -> {act = MetrialActivity.class }
-        }
+        
     }
 
 }
