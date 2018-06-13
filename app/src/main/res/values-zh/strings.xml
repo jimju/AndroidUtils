@@ -3,6 +3,7 @@
     <string name="title_widget">控件</string>
     <string name="title_function">功能</string>
     <string name="title_communication">通讯</string>
+    <string name="title_back">返回</string>
 
     <string name="rcv_loadmore_init">滑到底部加载更多</string>
     <string name="rcv_loadmore_loading">正在加载...</string>

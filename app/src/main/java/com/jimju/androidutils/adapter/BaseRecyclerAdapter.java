@@ -40,15 +40,9 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
     }
 
     @Override
-    public void onBindViewHolder(RecyclerHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerHolder holder, int position) {
         convert(holder,mCollection.get(position));
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener!=null)
-                    listener.onItemClick(position);
-            }
-        });
+        holder.itemView.setOnClickListener(new ItemViewClickListener(position));
     }
 
 
@@ -59,6 +53,20 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
 
     public void setOnItemClickLister(OnItemClickListener listener) {
         this.listener = listener;
+    }
+
+    private class ItemViewClickListener implements View.OnClickListener {
+        private int position;
+
+        public ItemViewClickListener(int position) {
+            this.position = position;
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (listener!=null)
+                listener.onItemClick(position);
+        }
     }
 
     public static interface OnItemClickListener{

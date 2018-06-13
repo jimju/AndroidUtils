@@ -16,8 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RecyclerViewActivity" />
+        <activity
+            android:name=".activity.RecyclerViewActivity"
+            android:label="RecyclerView" />
         <activity android:name=".activity.MetrialActivity" />
+        <activity android:name=".activity.AppDetailActivity" />
+        <activity
+            android:name=".activity.RecyclerViewDividerActivity"
+            android:label="RecyclerViewDivider"
+            android:theme="@style/RecyclerDivider" />
+        <activity
+            android:name=".activity.MetrialTabLayoutActivity"
+            android:label="MetrialTabLayout" />
+        <activity android:name=".activity.RecyclerViewHeaderActivity"
+            android:label="RecyclerViewHeaderAndFooter"/>
     </application>
 
 </manifest>

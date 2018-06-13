@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v4.view.ViewPager.OnPageChangeListener
+import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -40,7 +41,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         navigation.setOnNavigationItemSelectedListener(this)
         viewpager.adapter = MyViewPagerAdapter(supportFragmentManager)
         viewpager.addOnPageChangeListener(this)
-
     }
 
     override fun onPageScrollStateChanged(state: Int) {
@@ -52,13 +52,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     override fun onPageSelected(position: Int) {
-
-        Log.e("onPageSelected","pos " + position)
         if (menuItem == null)
-            navigation.menu.getItem(0).setChecked(false);
-        menuItem?.setChecked(false);
+            navigation.menu.getItem(0).isChecked = false;
+        menuItem?.isChecked = false;
         menuItem = navigation.menu.getItem(position);
-        menuItem?.isCheckable = true
+        menuItem?.isChecked = true
     }
 
 

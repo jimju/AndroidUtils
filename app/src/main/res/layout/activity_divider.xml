@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jimju.androidutils.activity.recyclerview.DividerActivity">
+    android:orientation="vertical"
+    tools:context="com.jimju.androidutils.activity.RecyclerViewDividerActivity">
+    
+    <android.support.v7.widget.Toolbar android:id="@id/toolbar" style="@style/ToolbarStyle"/>
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</android.support.v7.widget.LinearLayoutCompat>

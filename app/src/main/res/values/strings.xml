@@ -3,9 +3,13 @@
     <string name="title_widget">Widget</string>
     <string name="title_function">Function</string>
     <string name="title_communication">Communication</string>
+    <string name="title_back">back</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
 
     <string name="rcv_loadmore_init">滑到底部加载更多</string>
     <string name="rcv_loadmore_loading">正在加载...</string>

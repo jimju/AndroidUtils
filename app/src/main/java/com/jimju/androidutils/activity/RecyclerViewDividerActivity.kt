@@ -1,4 +1,4 @@
-package com.jimju.androidutils.activity.recyclerview
+package com.jimju.androidutils.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -15,7 +15,7 @@ import com.jimju.androidutils.recyclerview.SimpleItemDecoration
 import com.jimju.androidutils.utils.AppTools
 import kotlinx.android.synthetic.main.activity_divider.*
 
-class DividerActivity : AppCompatActivity() {
+class RecyclerViewDividerActivity : AppCompatActivity() {
     var mDecoration:RecyclerView.ItemDecoration ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
